@@ -30,7 +30,6 @@ This repository demonstrates the foundational ETL (Extract, Transform, Load) and
 Connected to local storage using both **Excel Workbook** and **Folder** connectors to load dimensions and transactional order data.
 
 ![Connect to Data Source](screenshots/01_connect_data_source.png)
-
 ---
 
 ### Step 2: Selecting Required Sheets
