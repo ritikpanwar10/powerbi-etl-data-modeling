@@ -80,6 +80,95 @@ Applied all query transformation steps and loaded the clean tabular data into th
 
 ![Close & Apply](screenshots/08_close_and_apply.png)
 
+# Folder Connector
+---
+
+## 🛠️ Step-by-Step Implementation & Workflow
+
+### Step 1: Connecting Data Sources to Power BI Desktop
+Initial stage me base dimension tables (`Customer Details`, `Food_Details`, aur `Resturant_Details`) load ki gayi hain.
+
+![Power BI Desktop Canvas](screenshots/Screenshot%202026-09-09%20151705.png)
+
+---
+
+### Step 2: Data Cleaning & Transformation in Power Query
+`Customer Details` table ke andar member types ko standardise kiya gaya:
+* `member_Type` column me typo/format errors ko handle karne ke liye text replacement logic apply kiya gaya (`Table.ReplaceValue`).
+* Column profiling enable karke 100% data quality (valid values, 0% error, 0% empty) verify ki gayi.
+
+![Power Query Text Replacement](screenshots/Screenshot%202026-09-09%20152214.png)
+
+---
+
+### Step 3: Verifying Loaded Tables in Data View
+Transformations complete hone ke baad queries ko apply karke Power BI model me Import mode ke under verify kiya gaya.
+
+![Imported Tables in Data Pane](screenshots/Screenshot%202026-09-09%20152416.png)
+
+---
+
+### Step 4: Ingesting Dynamic Monthly Data via Folder Connector
+Single-file import ke bajaye pure folder ko connect kiya gaya taki upcoming months ka data bina manual re-import ke auto-append ho sake:
+1. Power BI Desktop me **Get Data > More...** select kiya.
+2. **File > Folder** option choose karke destination source path select kiya.
+
+| Get Data Selection | Folder Connector Selection |
+| :---: | :---: |
+| ![Get Data Menu](screenshots/Screenshot%202026-09-09%20154039.png) | ![Folder Source Selection](screenshots/Screenshot%202026-09-09%20154142.png) |
+
+---
+
+### Step 5: Folder Path Configuration & Preview
+Folder connector ke through `Order Data` path browse kiya gaya jisme monthly workbooks store hain:
+* `January_24.xlsx`
+* `February_24.xlsx`
+* `March_24.xlsx`
+* `April_24.xlsx`
+
+Data load karne ke bajaye **Transform Data** par click karke Power Query Editor open kiya gaya.
+
+| Folder Path Selection | Files Preview |
+| :---: | :---: |
+| ![Folder Path Config](screenshots/Screenshot%202026-09-09%20154310.png) | ![Preview Files In Folder](screenshots/Screenshot%202026-09-09%20154331.png) |
+
+---
+
+### Step 6: Power Query Binary Extraction & Transformation
+1. **Remove Other Columns:** File metadata (`Name`, `Date modified`, `Extension`) ko drop karke sirf core `Content` column retain kiya gaya (`Table.SelectColumns(Source, {"Content"})`).
+2. **Custom Column Processing:** Binary content stream se Excel workbooks ko programmatically expand karne ke liye Custom Column add kiya gaya (`Excel.Workbook([Content])`).
+
+| Select Content Column | Custom Column Addition |
+| :---: | :---: |
+| ![Remove Other Columns](screenshots/Screenshot%202026-09-09%20154402.png) | ![Custom Column Power Query](screenshots/Screenshot%202026-09-09%20154609.png) |
+
+---
+
+## 🗂️ Repository Structure
+
+```text
+├── data/
+│   ├── Order Data/
+│   │   ├── January_24.xlsx
+│   │   ├── February_24.xlsx
+│   │   ├── March_24.xlsx
+│   │   └── April_24.xlsx
+│   ├── Customer_Details.xlsx
+│   ├── Food_Details.xlsx
+│   └── Resturant_Details.xlsx
+├── screenshots/
+│   ├── Screenshot 2026-09-09 151705.png
+│   ├── Screenshot 2026-09-09 152214.png
+│   ├── Screenshot 2026-09-09 152416.png
+│   ├── Screenshot 2026-09-09 154039.png
+│   ├── Screenshot 2026-09-09 154142.png
+│   ├── Screenshot 2026-09-09 154310.png
+│   ├── Screenshot 2026-09-09 154331.png
+│   ├── Screenshot 2026-09-09 154402.png
+│   └── Screenshot 2026-09-09 154609.png
+├── reports/
+│   └── Restaurant_Analytics.pbix
+└── README.md
 ---
 
 ## 🔗 Data Model & Relationships (Star Schema)
