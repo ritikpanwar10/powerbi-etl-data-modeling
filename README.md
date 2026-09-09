@@ -36,7 +36,7 @@ Connected to local storage using both **Excel Workbook** and **Folder** connecto
 ### Step 2: Selecting Required Sheets
 Selected the target entity tables (`Customer Details`, `Food_Details`, and `Resturant_Details`) from the workbook preview.
 
-![Choose Data](screenshots/02_choose_data.png)
+![Choose Data](screenshots/02_choose_data.png.png)
 
 ---
 
