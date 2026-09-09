@@ -141,49 +141,19 @@ Data load karne ke bajaye **Transform Data** par click karke Power Query Editor 
 | Select Content Column | Custom Column Addition |
 | :---: | :---: |
 | ![Remove Other Columns](screenshots/Screenshot%202026-09-09%20154402.png) | ![Custom Column Power Query](screenshots/Screenshot%202026-09-09%20154609.png) |
-
----
-
-## 🗂️ Repository Structure
-
-```text
-├── data/
-│   ├── Order Data/
-│   │   ├── January_24.xlsx
-│   │   ├── February_24.xlsx
-│   │   ├── March_24.xlsx
-│   │   └── April_24.xlsx
-│   ├── Customer_Details.xlsx
-│   ├── Food_Details.xlsx
-│   └── Resturant_Details.xlsx
-├── screenshots/
-│   ├── Screenshot 2026-09-09 151705.png
-│   ├── Screenshot 2026-09-09 152214.png
-│   ├── Screenshot 2026-09-09 152416.png
-│   ├── Screenshot 2026-09-09 154039.png
-│   ├── Screenshot 2026-09-09 154142.png
-│   ├── Screenshot 2026-09-09 154310.png
-│   ├── Screenshot 2026-09-09 154331.png
-│   ├── Screenshot 2026-09-09 154402.png
-│   └── Screenshot 2026-09-09 154609.png
-├── reports/
-│   └── Restaurant_Analytics.pbix
-└── README.md
----
+| ![Power Query](screenshots/Screenshot%202026-09-09%20154715.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20154735.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155016.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155035.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155101.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155248.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155305.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155358.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155430.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155457.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155521.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155552.png) |
+| ![Power Query](screenshots/Screenshot%202026-09-09%20155627.png) | ![Power Query](screenshots/Screenshot%202026-09-09%20155723.png) |
 
 ## 🔗 Data Model & Relationships (Star Schema)
 
 After loading, relationships were established between dimension tables and the central fact table:
 
-```text
-       [ Customer Details ] (1)
-               │
-               │ 1:* (customer_id)
-               ▼
-   ┌───────────────────────┐
-   │    Orders (Fact)      │ ◄─── 1:* (Restaurant_ID) ─── [ Resturant_Details ] (1)
-   └───────────────────────┘
-               ▲
-               │ 1:* (ItemCode)
-               │
-        [ Food_Details ] (1)
+<img width="1919" height="1018" alt="Screenshot 2026-09-09 160548" src="https://github.com/user-attachments/assets/755e9e3a-27f8-4a84-8a3d-3a013dc3d657" />
+<img width="1919" height="1019" alt="Screenshot 2026-09-09 160608" src="https://github.com/user-attachments/assets/28909249-e6be-4ce2-bf81-e5aac6c8b0d6" />
+<img width="1919" height="1016" alt="Screenshot 2026-09-09 160743" src="https://github.com/user-attachments/assets/2e31255f-0ea2-49e3-ad19-b1cfa0c7f013" />
+
