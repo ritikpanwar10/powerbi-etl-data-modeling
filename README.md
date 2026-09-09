@@ -1,5 +1,9 @@
 # 🍽️ Restaurant & Food Delivery Data Pipeline & Modeling - Power BI
 
+[![Power BI](https://img.shields.io/badge/Power_BI-Desktop-F2C811?style=flat&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![Power Query](https://img.shields.io/badge/Power_Query-ETL-217346?style=flat&logo=microsoftexcel&logoColor=white)](https://learn.microsoft.com/power-query/)
+[![Data Modeling](https://img.shields.io/badge/Modeling-Star_Schema-2370B8?style=flat)](https://learn.microsoft.com/power-bi/guidance/star-schema)
+
 An end-to-end Power BI project demonstrating multi-source data ingestion (Single File & Folder connectors), data cleaning in Power Query, and star schema relational data modeling.
 
 ---
